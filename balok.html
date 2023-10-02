@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Perhitungan Volume dan Luas Balok</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: arial;
+		}
+
+		body {
+			background: #f7d47a;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		h3{
+			text-align: center;
+			font-family: cursive;
+			margin-top: 20px;
+		}
+
+		label {
+			display: block;
+			margin-top: 7px;
+			width: 100%;
+		}
+
+		input {
+			display: block;
+			margin-top: 7px;
+			width: 100%;
+			padding: 5px;
+		}
+
+		input:focus {
+			outline: none;
+		}
+
+		.container {
+			background: #abffbd;
+			max-width: 500px;
+			margin: 50px auto;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			padding: 20px;
+			border-radius: 20px;
+			box-shadow: 0px 25px 35px rgba(0, 0, 0, 0.5);
+		}
+
+		.input {
+			width: 100%;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		#output, #outputLuas, #outputGalat {
+			text-align: center;
+			margin-top: 20px;
+		}
+
+		button {
+			width: 75px;
+			padding: 5px;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<h3>Kelompok 6 : Metode Numerik<br>
+	M. Davin, M. Hilal, Mutyarsih AE</h3>
+	<div class="container">
+		<h1>MENGHITUNG VOLUME & LUAS BALOK</h1>
+		<div class="input">
+			<label>Masukkan Panjang (cm)</label>
+			<input id="p" type="number">
+
+			<label>Masukkan Lebar (cm)</label>
+			<input id="l" type="number">
+
+			<label>Masukkan Tinggi (cm)</label>
+			<input id="t" type="number">
+		</div>
+		<button id="hitung">Hitung</button>	
+		<div id="output"></div>
+		<div id="outputLuas"></div>
+		<div id="outputGalat"></div>
+	</div>
+
+
+
+
+<script>
+	let hitung = document.getElementById('hitung');
+	
+	hitung.addEventListener('click', function() {
+		let panjang = parseFloat(document.getElementById('p').value);
+		let lebar = parseFloat(document.getElementById('l').value);
+		let tinggi = parseFloat(document.getElementById('t').value);
+		let output = document.getElementById('output');
+		let outputLuas = document.getElementById('outputLuas');
+		let outputGalat = document.getElementById('outputGalat');
+		
+		let volume = panjang*lebar*tinggi;
+		let luas = 2*((panjang*lebar) + (panjang*tinggi) + (lebar*tinggi));
+
+		output.innerHTML = `Volume Balok dengan panjang ${panjang} cm, lebar ${lebar} cm dan tinggi ${tinggi} cm adalah ${volume} cm<sup>3<sup>`;
+outputLuas.innerHTML = `Luas Balok dengan panjang ${panjang} cm, lebar ${lebar} cm dan tinggi ${tinggi} cm adalah ${luas} cm<sup>2<sup>`;
+outputGalat.innerHTML = `Galat dari perhitungan ini 0%<br><img src="galat.png">`;
+	});
+</script>	
+</body>
+</html>
